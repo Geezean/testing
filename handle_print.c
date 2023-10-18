@@ -19,8 +19,10 @@ int handle_print(const char *formatStr, int *ind, va_list arg_list,
 {
 	int l, unknow_len = 0, printed_chars = -1;
 	formatStr_t formatStr_argList[] = {
-		{'c', print_char}, {'s', print_string}, {'%', print_percent},
-		{'i', print_int}, {'d', print_int}, {'b', print_binary},
+		{'c', printFormattedCharacter}, {'s', printFormattedString},
+		{'%', printFormattedPercentSign},
+		{'i', printFormattedInteger}, {'d', printFormattedInteger},
+		{'b', printFormattedBinary},
 		{'u', printFormattedUnsigned}, {'o', printFormattedOctal},
 		{'x', printFormattedHexadecimal}, {'X', printFormattedHexaUpper},
 		{'p', printFormattedPointer}, {'S', print_NonPrintable},
