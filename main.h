@@ -106,7 +106,7 @@ int write_unsignd(int is_negative, int ind, char outputBuffer[],
 int write_pointer(char outputBuffer[], int ind, int length,
 	int width, int activeFlags, char padd, char extra_ch, int padd_start);
 
-/****************** UTILS ******************/
+/***************  HELPERS  ******************/
 int is_printable(char ch);
 int append_hexaDeCode(char ascii_code, char outputBuffer[], int l);
 int is_digit(char ch);
