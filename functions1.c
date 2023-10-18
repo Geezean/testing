@@ -75,7 +75,7 @@ int printFormattedOctal(va_list argList, char outputBuffer[],
 
 	i++;
 
-	return (write_unsignd(0, i, ouputBuffer, activeFlags,
+	return (write_unsignd(0, i, outputBuffer, activeFlags,
 				width, precision, size));
 }
 
@@ -141,7 +141,7 @@ int print_hexadec(va_list argList, char mapTo[], char outputBuffer[],
 
 	UNUSED(width);
 
-	number = convert_size_unsgnd(number, size);
+	number = convert_size_unsignd(number, size);
 
 	if (number == 0)
 		outputBuffer[i--] = '0';
@@ -162,6 +162,6 @@ int print_hexadec(va_list argList, char mapTo[], char outputBuffer[],
 
 	i++;
 
-	return (write_unsgnd(0, i, outputBuffer, activeFlags,
+	return (write_unsignd(0, i, outputBuffer, activeFlags,
 				width, precision, size));
 }

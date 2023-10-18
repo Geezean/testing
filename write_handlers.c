@@ -108,7 +108,7 @@ int write_num(int ind, char opBuffer[], int activeFlags, int width,
 {
 	for (l = 1; l < width - length + 1; l++)
 		opBuffer[l] = padd;
-		opBuffer[l] = '\0';
+	opBuffer[l] = '\0';
 if (activeFlags & F_MINUS && padd == ' ')
 {
 if (extra_ch)
@@ -130,8 +130,8 @@ return (write(1, &opBuffer[padd_start], l - padd_start) + write(1,
 }
 	}
 	if (extra_ch)
-		outputBuffer[--ind] = extra_ch;
-	return (write(1, &outputBuffer[ind], length));
+		opBuffer[--ind] = extra_ch;
+	return (write(1, &opBuffer[ind], length));
 }
 /**
  * write_unsignd - Writes an unsigned num
@@ -162,16 +162,16 @@ int write_unsignd(int is_negative, int ind, char outputBuffer[],
 		outputBuffer[--ind] = '0';
 		length++;
 	}
-	if ((flags & F_ZERO) && !(flags & F_MINUS))
+	if ((activeFlags & F_ZERO) && !(activeFlags & F_MINUS))
 		padd = '0';
 	if (width > length)
 	{
 		for (l = 0; l < width - length; l++)
 			outputBuffer[l] = padd;
 
-		buffer[l] = '\0';
+		outputBuffer[l] = '\0';
 
-		if (flags & F_MINUS)
+		if (activeFlags & F_MINUS)
 		{
 			return (write(1, &outputBuffer[ind], length) + write
 					(1, &outputBuffer[0], l));
@@ -207,7 +207,7 @@ int write_pointer(char outputBuffer[], int ind, int length,
 		for (l = 3; l < width - length + 3; l++)
 			outputBuffer[l] = padd;
 		outputBuffer[l] = '\0';
-		if (activeflags & F_MINUS && padd == ' ')
+		if (activeFlags & F_MINUS && padd == ' ')
 		{
 			outputBuffer[--ind] = 'x';
 			outputBuffer[--ind] = '0';

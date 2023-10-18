@@ -22,7 +22,7 @@ int _printf(const char *formatStr, ...)
 
 	for (l = 0; formatStr && formatStr[l] != '\0'; l++)
 	{
-		if (formatted[l] != '%')
+		if (formatStr[l] != '%')
 		{
 			outputBuffer[buff_ind++] = formatStr[l];
 			if (buff_ind == BUFF_SIZE)

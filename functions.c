@@ -60,13 +60,13 @@ int printFormattedString(va_list argList, char outputBuffer[],
 		if (activeFlags & F_MINUS)
 		{
 			write(1, &s[0], len);
-			for (x = width - len; x > 0; x--)
+			for (l = width - len; l > 0; l--)
 			write(1, " ", 1);
 			return (width);
 		}
 		else
 		{
-			for (x = width - len; x > 0; x--)
+			for (l = width - len; l > 0; l--)
 				write(1, " ", 1);
 			write(1, &s[0], len);
 			return (width);
@@ -125,7 +125,7 @@ int printFormattedInteger(va_list argList, char outputBuffer[],
 		if (no == 0)
 			outputBuffer[x--] = '0';
 
-		outputBuffer[BUFFER_SIZE - 1] = '\0';
+		outputBuffer[BUFF_SIZE - 1] = '\0';
 		number = (unsigned long int)no;
 
 		if (no < 0)
@@ -186,6 +186,7 @@ int printFormattedBinary(va_list argList, char outputBuffer[],
 		{
 			char z = '0' + d[c];
 
+			write(1, &z, 1);
 			num++;
 		}
 	}
